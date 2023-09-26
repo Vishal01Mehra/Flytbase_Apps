@@ -1,5 +1,5 @@
-# Flytbase_Apps
-### Trajectory path planing Apps for Flytbase
+# Flytbase Apps
+### Trajectory path planning Apps for Flytbase
 <p align="center">
   <img width="700" height="400" src="https://github.com/Vishal01Mehra/Flytbase_Apps/blob/main/Resource/Trajactory_Following.gif">
 </p>
