@@ -11,17 +11,13 @@ time.sleep(5)
 bat = drone.get_battery_status()
 if bat.voltage > ThrehBatt:
     drone.arm() # Arm the done
-
-    print("taking off at" + takeoffDist)
+    print("taking off at" + str(takeoffDist) + "m")
     drone.take_off(takeoffDist) # takeoff the drone
 
     print("Moving in a Triangle")
-    drone.position_set(0, 0, 0, yaw = 1.0472, tolerance=0.5, yaw_valid=True,  body_frame=True) # yaw = 1.0472 (60 degrees in radians)
-    drone.position_set(10, 0, 0, relative=True) # move forward by 10m
-    drone.position_set(0, 0, 0, yaw = 1.0472, tolerance=0.5, yaw_valid=True,  body_frame=True) # Yaw 60 degree
-    drone.position_set(10, 0, 0, relative=True) # move forward by 10m
-    drone.position_set(0, 0, 0, yaw = 1.0472, tolerance=0.5, yaw_valid=True,  body_frame=True) # Yaw gain 60 degree
-    drone.position_set(10, 0, 0, relative=True) # move forward by 10m
+    drone.position_set(-8, 6, 0, relative=True) # Basic Pythagorean theorem (a2 + b2 = c2) for the hypotenus of 10m
+    drone.position_set(8, 6, 0, relative=True) 
+    drone.position_set(0, -10, 0,relative=True) # Move back to the origin 
 
     print ("Landing The Drone")
     drone.land() # Land the drone
@@ -29,4 +25,4 @@ if bat.voltage > ThrehBatt:
     drone.disarm() # Disarm the drone 
     drone.disconnect() 
 else:
-    print("Aborting script Battery too Low: " + bat.voltage )
+    print("Aborting script Battery too Low: " + str(bat.voltage) + "V" )

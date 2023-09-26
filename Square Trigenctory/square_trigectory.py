@@ -12,7 +12,7 @@ time.sleep(5)
 bat = drone.get_battery_status()
 if bat.voltage > ThrehBatt:
     drone.arm() # Arm the done
-    print("taking off at" + takeoffDist)
+    print("taking off at" + str(takeoffDist) + "m")
     drone.take_off(takeoffDist) # takeoff the drone
 
     print("Moving in a square")
@@ -27,5 +27,4 @@ if bat.voltage > ThrehBatt:
     drone.disarm() # Disarm the drone 
     drone.disconnect()
 else:
-    print("Aborting script Battery too Low")
-
+    print("Aborting script Battery too Low: " + str(bat.voltage) + "V" )
